@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: usbkstudies-v20
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: GROW_API_KEY
+        sync: false
+      - key: GROW_API_BASE_URL
+        sync: false
+      - key: GROW_API_ENDPOINT
+        value: /chat/completions
+      - key: GROW_API_MODEL
+        sync: false
+      - key: WEB_SEARCH_API_KEY
+        sync: false
+      - key: WEB_SEARCH_BASE_URL
+        sync: false
